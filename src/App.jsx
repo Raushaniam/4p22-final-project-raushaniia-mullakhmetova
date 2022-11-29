@@ -5,10 +5,15 @@ import { RouterContainer } from "./parts/Router/RouterContainer";
 
 function App() {
     const [height, setHeight] = useState(0);
+    const [searchableText, setSearchableText] = useState();
 
     useEffect(() => {
         setHeight(window.innerHeight);
     }, []);
+
+    const onSearch = (text) => {
+        setSearchableText(text);
+    };
 
     return (
         <div
@@ -17,7 +22,10 @@ function App() {
                 height: height,
             }}
         >
-            <RouterContainer />
+            <RouterContainer
+                searchableText={searchableText}
+                onSearch={onSearch}
+            />
         </div>
     );
 }

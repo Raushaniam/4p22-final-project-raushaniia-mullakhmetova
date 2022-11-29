@@ -23,27 +23,50 @@ export const GoodItem = ({
         <Card
             key={good.id}
             className='GoodItem'
-            sx={{ width: 300, height: 300 }}
+            sx={{ width: 300, height: 320 }}
         >
-            <CardMedia component='img' image={good.img} alt={good.name} />
-            <CardContent>
-                <Typography gutterBottom variant='h5' component='div'>
+            <CardMedia
+                className='ImgGoodItem'
+                component='img'
+                image={good.img}
+                alt={good.name}
+            />
+            <CardContent className='ContentGoodItem'>
+                <Typography
+                    className='HeaderGoodItem'
+                    gutterBottom
+                    variant='h5'
+                    component='div'
+                >
                     {good.name}
                 </Typography>
-                <Typography variant='body2' color='text.secondary'>
+                <Typography
+                    className='DescriptionGoodItem'
+                    variant='body2'
+                    color='text.secondary'
+                >
                     {good.description}
                 </Typography>
             </CardContent>
-            <CardActions>
+            <CardActions className='CardActionsGoodItem'>
                 {!isInBasket ? (
-                    <Button size='small' onClick={onAddInBasket}>
+                    <Button
+                        className='ButtonGoodItem'
+                        size='small'
+                        onClick={onAddInBasket}
+                    >
                         {ADD_GOOD_IN_BASKET}
                     </Button>
                 ) : (
-                    <Button size='small' onClick={onRemoveInBasket}>
+                    <Button
+                        className='ButtonGoodItem'
+                        size='small'
+                        onClick={onRemoveInBasket}
+                    >
                         {REMOVE_GOOD_IN_BASKET}
                     </Button>
                 )}
+                <span>&#128176; {good.price}</span>
             </CardActions>
         </Card>
     );

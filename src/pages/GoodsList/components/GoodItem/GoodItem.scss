@@ -1,2 +1,39 @@
+@import "../../../../common/styles/variables.scss";
+
 .GoodItem {
+    &.css-1cj0hj0-MuiPaper-root-MuiCard-root {
+        box-shadow: inset 1px 0px 8px 1px rgb(54 29 15 / 65%),
+            inset 0px -1px 1px 0px rgb(54 29 15 / 65%),
+            0px 1px 3px 0px rgb(54 29 15 / 65%);
+    }
+}
+
+.ContentGoodItem {
+    padding: 10px 16px;
+}
+
+.ImgGoodItem {
+    height: 55%;
+}
+
+.HeaderGoodItem {
+    font-size: 1.2rem;
+}
+
+.DescriptionGoodItem {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.CardActionsGoodItem {
+    justify-content: space-evenly;
+}
+
+.ButtonGoodItem {
+    &.css-1knaqv7-MuiButtonBase-root-MuiButton-root {
+        background-color: #361d0fa6;
+        color: rgb(251, 251, 251);
+        padding: 4px 8px;
+    }
 }

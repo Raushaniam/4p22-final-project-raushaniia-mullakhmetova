@@ -15,4 +15,26 @@ export const ROUTES = {
         name: "Обратная связь",
         path: "/feedback",
     },
+    categories: {
+        cityLife: {
+            name: "Городская жизнь",
+            path: "cityLife",
+        },
+        cowboys: {
+            name: "Ковбои",
+            path: "cowboys",
+        },
+        animalHunting: {
+            name: "Охота на диких животных",
+            path: "animalHunting",
+        },
+        headhunting: {
+            name: "Охота за головами",
+            path: "headhunting",
+        },
+        nature: {
+            name: "Природа",
+            path: "nature",
+        },
+    },
 };

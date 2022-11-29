@@ -1,4 +1,42 @@
-@import './../../common/styles/variables.scss';
+@import "./../../common/styles/variables.scss";
+
 .Header {
-    font-size: $PrimaryFontSize;
+    &.MuiAppBar-root {
+        position: sticky;
+        font-size: $PrimaryFontSize;
+        background-color: $BackgroundColorBrown;
+    }
+    .CategoriesMenu {
+        .MuiTypography-root {
+            text-align: start;
+        }
+    }
+}
+
+button {
+    &.MuiButtonBase-root {
+        color: #fff;
+    }
+}
+
+.Toolbar {
+    column-gap: 20%;
+}
+
+.Search {
+    display: flex;
+}
+
+.SearchIconWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.TextField {
+    input {
+        color: #fff;
+    }
+    input::placeholder {
+        color: #fff;
+    }
 }

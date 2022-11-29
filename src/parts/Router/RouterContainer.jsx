@@ -9,17 +9,34 @@ import { NotFound } from "../../pages/NotFound/NotFound";
 import { FooterContainer } from "../Footer/FooterContainer";
 import { HeaderContainer } from "../Header/HeaderContainer";
 
-export const RouterContainer = () => {
+export const RouterContainer = ({ searchableText, onSearch }) => {
     return (
         <BrowserRouter>
-            <HeaderContainer />
+            <HeaderContainer onSearch={onSearch} />
             <Routes>
-                <Route path='/' element={<GoodsListContainer />} />
+                <Route
+                    path='/'
+                    element={
+                        <GoodsListContainer searchableText={searchableText} />
+                    }
+                />
                 <Route
                     path={ROUTES.mainPage.path}
-                    element={<GoodsListContainer />}
+                    element={
+                        <GoodsListContainer searchableText={searchableText} />
+                    }
                     errorElement={<NotFound />}
-                />
+                >
+                    <Route
+                        path={":category"}
+                        element={
+                            <GoodsListContainer
+                                searchableText={searchableText}
+                            />
+                        }
+                        errorElement={<NotFound />}
+                    />
+                </Route>
                 <Route
                     path={ROUTES.basket.path}
                     element={<BasketContainer />}
