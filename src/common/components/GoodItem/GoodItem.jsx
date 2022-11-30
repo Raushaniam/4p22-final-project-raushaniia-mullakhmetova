@@ -11,13 +11,14 @@ import {
 import {
     ADD_GOOD_IN_BASKET,
     REMOVE_GOOD_IN_BASKET,
-} from "../../../../common/constants/Dictionary";
+} from "../../constants/Dictionary";
 
 export const GoodItem = ({
     isInBasket = false,
     onAddInBasket,
     onRemoveInBasket,
     good,
+    onClickItem = () => {},
 }) => {
     return (
         <Card
@@ -30,8 +31,9 @@ export const GoodItem = ({
                 component='img'
                 image={good.img}
                 alt={good.name}
+                onClick={onClickItem}
             />
-            <CardContent className='ContentGoodItem'>
+            <CardContent className='ContentGoodItem' onClick={onClickItem}>
                 <Typography
                     className='HeaderGoodItem'
                     gutterBottom
@@ -53,15 +55,23 @@ export const GoodItem = ({
                     <Button
                         className='ButtonGoodItem'
                         size='small'
-                        onClick={onAddInBasket}
+                        onClick={() => onAddInBasket(good.id)}
+                        sx={{
+                            color: "white",
+                            display: "block",
+                        }}
                     >
                         {ADD_GOOD_IN_BASKET}
                     </Button>
                 ) : (
                     <Button
-                        className='ButtonGoodItem'
+                        className='ButtonGoodItem ButtonRemoveGoodItem'
                         size='small'
-                        onClick={onRemoveInBasket}
+                        onClick={() => onRemoveInBasket(good.id)}
+                        sx={{
+                            color: "white",
+                            display: "block",
+                        }}
                     >
                         {REMOVE_GOOD_IN_BASKET}
                     </Button>

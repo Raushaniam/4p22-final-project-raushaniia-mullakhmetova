@@ -6,30 +6,50 @@
         font-size: $PrimaryFontSize;
         background-color: $BackgroundColorBrown;
     }
+
     .CategoriesMenu {
         .MuiTypography-root {
             text-align: start;
         }
     }
+
+    .CategoriesOfMainPage {
+        display: flex;
+    }
+
+    button {
+        &.MuiButtonBase-root {
+            color: #fff;
+        }
+    }
+    .SelectedMenuButtonItem {
+        background-color: #da5b13 !important;
+    }
 }
 
-button {
-    &.MuiButtonBase-root {
-        color: #fff;
+.SelectedMenuItem {
+    &.MuiMenuItem-root {
+        background-color: #da5b13 !important;
+    }
+}
+
+.HeaderContainer {
+    &.MuiContainer-root {
+        margin: 0 auto;
+        max-width: 100%;
     }
 }
 
 .Toolbar {
-    column-gap: 20%;
+    &.MuiToolbar-root {
+        justify-content: space-around;
+    }
 }
 
-.Search {
-    display: flex;
-}
-
-.SearchIconWrapper {
-    display: flex;
-    align-items: center;
+.NavigationBox {
+    &.MuiBox-root {
+        justify-content: center;
+    }
 }
 
 .TextField {
@@ -39,4 +59,28 @@ button {
     input::placeholder {
         color: #fff;
     }
+}
+
+.Search {
+    display: flex;
+
+    .MuiFormControl-root {
+        .Mui-focused {
+            .MuiOutlinedInput-notchedOutline {
+                border: 2px solid #da5b13;
+            }
+        }
+    }
+
+    .MuiOutlinedInput-notchedOutline {
+        border: 2px solid #4a3327c2;
+    }
+}
+
+.SearchIconWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.Categories {
 }

@@ -1,4 +1,4 @@
-@import "../../../../common/styles/variables.scss";
+@import "../../styles/variables.scss";
 
 .GoodItem {
     &.css-1cj0hj0-MuiPaper-root-MuiCard-root {
@@ -31,9 +31,23 @@
 }
 
 .ButtonGoodItem {
-    &.css-1knaqv7-MuiButtonBase-root-MuiButton-root {
+    &.MuiButtonBase-root {
         background-color: #361d0fa6;
         color: rgb(251, 251, 251);
         padding: 4px 8px;
+    }
+    &.MuiButtonBase-root:hover {
+        background-color: #361d0fa6;
+    }
+}
+
+.ButtonRemoveGoodItem {
+    &.MuiButtonBase-root {
+        background-color: #da5b13;
+        color: rgb(251, 251, 251);
+        padding: 4px 8px;
+    }
+    &.MuiButtonBase-root:hover {
+        background-color: #da5b13;
     }
 }

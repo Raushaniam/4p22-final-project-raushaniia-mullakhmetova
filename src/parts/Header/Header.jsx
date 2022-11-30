@@ -12,7 +12,6 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Container } from "@mui/system";
-
 import { SiteName } from "./components/SiteName/SiteName";
 import SearchIcon from "@mui/icons-material/Search";
 import "./Header.scss";
@@ -31,10 +30,11 @@ export const Header = ({
     onClickCategoriesMenuButton,
     anchorCategoriesMenu,
     onCloseCategoriesMenuButton,
+    isSelectedCategory,
 }) => {
     return (
         <AppBar className='Header'>
-            <Container>
+            <Container className='HeaderContainer'>
                 <Toolbar className='Toolbar'>
                     <SiteName
                         sx={{
@@ -56,20 +56,23 @@ export const Header = ({
                             open={Boolean(anchorElNav)}
                             onClose={onCloseMenu}
                         >
-                            {pages.map(({ name, path }) => {
+                            {pages.map(({ name, path, isCurrentPage }) => {
                                 return (
                                     <div key={name}>
-                                        {name === ROUTES.mainPage.name ? (
+                                        <MenuItem
+                                            className={
+                                                isCurrentPage
+                                                    ? "SelectedMenuItem"
+                                                    : "NotSelectedMenuItem"
+                                            }
+                                            onClick={onClickMenuItem(path)}
+                                        >
+                                            <Typography textAlign='center'>
+                                                {name}
+                                            </Typography>
+                                        </MenuItem>
+                                        {name === ROUTES.mainPage.name && (
                                             <>
-                                                <MenuItem
-                                                    onClick={onClickMenuItem(
-                                                        path
-                                                    )}
-                                                >
-                                                    <Typography textAlign='center'>
-                                                        {name}
-                                                    </Typography>
-                                                </MenuItem>
                                                 <div key='Categories'>
                                                     {CATEGORIES}
                                                 </div>
@@ -81,15 +84,6 @@ export const Header = ({
                                                     }
                                                 />
                                             </>
-                                        ) : (
-                                            <MenuItem
-                                                key={name}
-                                                onClick={onClickMenuItem(path)}
-                                            >
-                                                <Typography textAlign='center'>
-                                                    {name}
-                                                </Typography>
-                                            </MenuItem>
                                         )}
                                     </div>
                                 );
@@ -103,15 +97,21 @@ export const Header = ({
                         }}
                     />
                     <Box
+                        className='NavigationBox'
                         sx={{
                             flexGrow: 1,
                             display: { xs: "none", md: "flex" },
                         }}
                     >
-                        {pages.map(({ name, path }) => (
-                            <div key={name}>
+                        {pages.map(({ name, path, isCurrentPage }) => (
+                            <div key={name} className='CategoriesOfMainPage'>
                                 <Button
                                     key={name}
+                                    className={
+                                        isCurrentPage
+                                            ? "SelectedMenuButtonItem"
+                                            : "NotSelectedMenuButtonItem"
+                                    }
                                     onClick={onClickMenuItem(path)}
                                     sx={{
                                         my: 2,
@@ -124,6 +124,11 @@ export const Header = ({
                                 {name === ROUTES.mainPage.name && (
                                     <>
                                         <Button
+                                            className={
+                                                isSelectedCategory
+                                                    ? "SelectedMenuButtonItem"
+                                                    : "NotSelectedMenuButtonItem"
+                                            }
                                             key={name}
                                             onClick={
                                                 onClickCategoriesMenuButton
@@ -137,6 +142,7 @@ export const Header = ({
                                             {CATEGORIES}
                                         </Button>
                                         <Menu
+                                            className='CategoryContainer'
                                             anchorEl={anchorCategoriesMenu}
                                             keepMounted
                                             open={Boolean(anchorCategoriesMenu)}

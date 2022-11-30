@@ -9,7 +9,14 @@ import { NotFound } from "../../pages/NotFound/NotFound";
 import { FooterContainer } from "../Footer/FooterContainer";
 import { HeaderContainer } from "../Header/HeaderContainer";
 
-export const RouterContainer = ({ searchableText, onSearch }) => {
+export const RouterContainer = ({
+    searchableText,
+    onSearch,
+    getGoodsFromBasket,
+    saveGoodInBasket,
+    removeGoodInBasket,
+    goodsFromApi,
+}) => {
     return (
         <BrowserRouter>
             <HeaderContainer onSearch={onSearch} />
@@ -17,13 +24,25 @@ export const RouterContainer = ({ searchableText, onSearch }) => {
                 <Route
                     path='/'
                     element={
-                        <GoodsListContainer searchableText={searchableText} />
+                        <GoodsListContainer
+                            goodsFromApi={goodsFromApi}
+                            searchableText={searchableText}
+                            getGoodsFromBasket={getGoodsFromBasket}
+                            saveGoodInBasket={saveGoodInBasket}
+                            removeGoodInBasket={removeGoodInBasket}
+                        />
                     }
                 />
                 <Route
                     path={ROUTES.mainPage.path}
                     element={
-                        <GoodsListContainer searchableText={searchableText} />
+                        <GoodsListContainer
+                            goodsFromApi={goodsFromApi}
+                            searchableText={searchableText}
+                            getGoodsFromBasket={getGoodsFromBasket}
+                            saveGoodInBasket={saveGoodInBasket}
+                            removeGoodInBasket={removeGoodInBasket}
+                        />
                     }
                     errorElement={<NotFound />}
                 >
@@ -39,7 +58,14 @@ export const RouterContainer = ({ searchableText, onSearch }) => {
                 </Route>
                 <Route
                     path={ROUTES.basket.path}
-                    element={<BasketContainer />}
+                    element={
+                        <BasketContainer
+                            removeGoodInBasket={removeGoodInBasket}
+                            goodsFromApi={goodsFromApi}
+                            getGoodsFromBasket={getGoodsFromBasket}
+                            saveGoodInBasket={saveGoodInBasket}
+                        />
+                    }
                 />
                 <Route
                     path={ROUTES.feedback.path}
@@ -47,8 +73,27 @@ export const RouterContainer = ({ searchableText, onSearch }) => {
                 />
                 <Route
                     path={ROUTES.goodDetails.path}
-                    element={<GoodDetailsContainer />}
-                />
+                    element={
+                        <GoodDetailsContainer
+                            goodsFromApi={goodsFromApi}
+                            getGoodsFromBasket={getGoodsFromBasket}
+                            saveGoodInBasket={saveGoodInBasket}
+                            removeGoodInBasket={removeGoodInBasket}
+                        />
+                    }
+                >
+                    <Route
+                        path={":goodId"}
+                        element={
+                            <GoodDetailsContainer
+                                goodsFromApi={goodsFromApi}
+                                getGoodsFromBasket={getGoodsFromBasket}
+                                saveGoodInBasket={saveGoodInBasket}
+                                removeGoodInBasket={removeGoodInBasket}
+                            />
+                        }
+                    />
+                </Route>
                 <Route path='*' element={<NotFound />} />
             </Routes>
             <FooterContainer />

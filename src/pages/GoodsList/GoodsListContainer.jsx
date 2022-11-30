@@ -1,29 +1,35 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { GOODS_URL } from "../../common/constants/ApiUrls";
+import { useParams, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../common/constants/Routes";
 import { getGoodsBySearchableText } from "../../common/logic/getGoodsBySearchableText";
 import { GoodsList } from "./GoodsList";
 
-export const GoodsListContainer = ({ searchableText }) => {
+export const GoodsListContainer = ({
+    searchableText,
+    getGoodsFromBasket,
+    saveGoodInBasket,
+    removeGoodInBasket,
+    goodsFromApi,
+}) => {
     const [goods, setGoods] = useState([]);
-    const [goodsFromApi, setGoodsFromApi] = useState([]);
+    const [goodsIdsInBasket, setGoodsIdsInBasket] = useState({});
 
     const { category } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(GOODS_URL)
-            .then((response) => {
-                return response.json();
-            })
-            .then((goods) => {
-                setGoodsFromApi(goods);
-                setGoods(goods);
-            })
-            .catch((error) => {
-                console.warn(error);
+        setGoods(goodsFromApi);
+    }, [goodsFromApi]);
+
+    useEffect(() => {
+        setGoodsIdsInBasket(() => {
+            const goodsIds = {};
+            getGoodsFromBasket().forEach((id) => {
+                goodsIds[id] = id;
             });
+            return goodsIds;
+        });
     }, []);
 
     useEffect(() => {
@@ -51,13 +57,37 @@ export const GoodsListContainer = ({ searchableText }) => {
         });
     }, [category]);
 
-    const onAddInBasket = () => {};
-    const onRemoveInBasket = () => {};
+    const onAddInBasket = (id) => {
+        saveGoodInBasket(id);
+        setGoodsIdsInBasket(() => {
+            const goodsIds = {};
+            getGoodsFromBasket().forEach((id) => {
+                goodsIds[id] = id;
+            });
+            return goodsIds;
+        });
+    };
+    const onRemoveInBasket = (id) => {
+        removeGoodInBasket(id);
+        setGoodsIdsInBasket(() => {
+            const goodsIds = {};
+            getGoodsFromBasket().forEach((id) => {
+                goodsIds[id] = id;
+            });
+            return goodsIds;
+        });
+    };
+    const onClickItem = (goodId) => {
+        navigate(`${ROUTES.goodDetails.path}/${goodId}`);
+    };
     return (
         <GoodsList
+            goodsIdsInBasket={goodsIdsInBasket}
             goods={goods}
             onAddInBasket={onAddInBasket}
             onRemoveInBasket={onRemoveInBasket}
+            saveGoodInBasket={saveGoodInBasket}
+            onClickItem={onClickItem}
         />
     );
 };

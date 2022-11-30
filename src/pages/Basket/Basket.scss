@@ -1,3 +1,10 @@
 .Basket {
-    
+    button {
+        &.MuiButtonBase-root {
+            background-color: #da5b13;
+            &.Mui-disabled {
+                background-color: #ccc;
+            }
+        }
+    }
 }

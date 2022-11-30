@@ -5,7 +5,7 @@ export const ROUTES = {
     },
     goodDetails: {
         name: "Информация о товаре",
-        path: "/good:goodId",
+        path: "/good",
     },
     basket: {
         name: "Корзина",
