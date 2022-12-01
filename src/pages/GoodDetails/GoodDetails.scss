@@ -1,5 +1,25 @@
 .GoodDetails {
+    .MuiPaper-root {
+        margin: 20px auto;
+        width: 94%;
+        height: auto;
+        padding: 10px;
+        display: flex;
+    }
+
     .GoodItem {
-        
+        .MuiCardActions-root {
+            justify-content: flex-start;
+        }
+        img {
+            max-height: 500px;
+            max-width: 60%;
+        }
+        .GoodContainer {
+            max-width: 40%;
+        }
+        .MuiTypography-root {
+            font-weight: 700;
+        }
     }
 }

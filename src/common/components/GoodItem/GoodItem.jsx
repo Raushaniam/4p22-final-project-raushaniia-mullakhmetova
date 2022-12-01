@@ -33,51 +33,53 @@ export const GoodItem = ({
                 alt={good.name}
                 onClick={onClickItem}
             />
-            <CardContent className='ContentGoodItem' onClick={onClickItem}>
-                <Typography
-                    className='HeaderGoodItem'
-                    gutterBottom
-                    variant='h5'
-                    component='div'
-                >
-                    {good.name}
-                </Typography>
-                <Typography
-                    className='DescriptionGoodItem'
-                    variant='body2'
-                    color='text.secondary'
-                >
-                    {good.description}
-                </Typography>
-            </CardContent>
-            <CardActions className='CardActionsGoodItem'>
-                {!isInBasket ? (
-                    <Button
-                        className='ButtonGoodItem'
-                        size='small'
-                        onClick={() => onAddInBasket(good.id)}
-                        sx={{
-                            color: "white",
-                            display: "block",
-                        }}
+            <div className='GoodContainer'>
+                <CardContent className='ContentGoodItem' onClick={onClickItem}>
+                    <Typography
+                        className='HeaderGoodItem'
+                        gutterBottom
+                        variant='h5'
+                        component='div'
                     >
-                        {ADD_GOOD_IN_BASKET}
-                    </Button>
-                ) : (
-                    <Button
-                        className='ButtonGoodItem ButtonRemoveGoodItem'
-                        size='small'
-                        onClick={() => onRemoveInBasket(good.id)}
-                        sx={{
-                            color: "white",
-                            display: "block",
-                        }}
+                        {good.name}
+                    </Typography>
+                    <Typography
+                        className='DescriptionGoodItem'
+                        variant='body2'
+                        color='text.secondary'
                     >
-                        {REMOVE_GOOD_IN_BASKET}
-                    </Button>
-                )}
-                <span>&#128176; {good.price}</span>
-            </CardActions>
+                        {good.description}
+                    </Typography>
+                </CardContent>
+                <CardActions className='CardActionsGoodItem'>
+                    {!isInBasket ? (
+                        <Button
+                            className='ButtonGoodItem'
+                            size='small'
+                            onClick={() => onAddInBasket(good.id)}
+                            sx={{
+                                color: "white",
+                                display: "block",
+                            }}
+                        >
+                            {ADD_GOOD_IN_BASKET}
+                        </Button>
+                    ) : (
+                        <Button
+                            className='ButtonGoodItem ButtonRemoveGoodItem'
+                            size='small'
+                            onClick={() => onRemoveInBasket(good.id)}
+                            sx={{
+                                color: "white",
+                                display: "block",
+                            }}
+                        >
+                            {REMOVE_GOOD_IN_BASKET}
+                        </Button>
+                    )}
+                    <span>&#128176; {good.price}</span>
+                </CardActions>
+            </div>
         </Card>
     );
 };
