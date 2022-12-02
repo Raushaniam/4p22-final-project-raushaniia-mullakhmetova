@@ -22,6 +22,18 @@ export const RouterContainer = ({
             <HeaderContainer onSearch={onSearch} />
             <Routes>
                 <Route
+                    path='/4p22-final-project-raushaniia-mullakhmetova'
+                    element={
+                        <GoodsListContainer
+                            goodsFromApi={goodsFromApi}
+                            searchableText={searchableText}
+                            getGoodsFromBasket={getGoodsFromBasket}
+                            saveGoodInBasket={saveGoodInBasket}
+                            removeGoodInBasket={removeGoodInBasket}
+                        />
+                    }
+                />
+                <Route
                     path='/'
                     element={
                         <GoodsListContainer
