@@ -10,6 +10,7 @@ import {
     Button,
     TextField,
 } from "@mui/material";
+import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Container } from "@mui/system";
 import { SiteName } from "./components/SiteName/SiteName";
@@ -36,11 +37,18 @@ export const Header = ({
         <AppBar className='Header'>
             <Container className='HeaderContainer'>
                 <Toolbar className='Toolbar'>
-                    <SiteName
-                        sx={{
-                            display: { xs: "none", md: "flex" },
-                        }}
-                    />
+                    <div className='Logo'>
+                        <PhotoCameraIcon
+                            sx={{
+                                display: { xs: "none", md: "flex" },
+                            }}
+                        />
+                        <SiteName
+                            sx={{
+                                display: { xs: "none", md: "flex" },
+                            }}
+                        />
+                    </div>
                     <Box
                         sx={{
                             flexGrow: 1,
@@ -72,30 +80,39 @@ export const Header = ({
                                             </Typography>
                                         </MenuItem>
                                         {name === ROUTES.mainPage.name && (
-                                            <>
+                                            <div className='CategoriesBox'>
                                                 <div key='Categories'>
-                                                    {CATEGORIES}
+                                                    <div className='HeaderCategories'>
+                                                        {CATEGORIES}
+                                                    </div>
+                                                    <Categories
+                                                        key={name}
+                                                        categories={categories}
+                                                        onClickMenuItem={
+                                                            onClickMenuItem
+                                                        }
+                                                    />
                                                 </div>
-                                                <Categories
-                                                    key={name}
-                                                    categories={categories}
-                                                    onClickMenuItem={
-                                                        onClickMenuItem
-                                                    }
-                                                />
-                                            </>
+                                            </div>
                                         )}
                                     </div>
                                 );
                             })}
                         </Menu>
                     </Box>
+                    <div className='Logo'>
+                        <PhotoCameraIcon
+                            sx={{
+                                display: { xs: "flex", md: "none" },
+                            }}
+                        />
+                        <SiteName
+                            sx={{
+                                display: { xs: "flex", md: "none" },
+                            }}
+                        />
+                    </div>
 
-                    <SiteName
-                        sx={{
-                            display: { xs: "flex", md: "none" },
-                        }}
-                    />
                     <Box
                         className='NavigationBox'
                         sx={{
@@ -104,7 +121,7 @@ export const Header = ({
                         }}
                     >
                         {pages.map(({ name, path, isCurrentPage }) => (
-                            <div key={name} className='CategoriesOfMainPage'>
+                            <>
                                 <Button
                                     key={name}
                                     className={
@@ -129,7 +146,7 @@ export const Header = ({
                                                     ? "SelectedMenuButtonItem"
                                                     : "NotSelectedMenuButtonItem"
                                             }
-                                            key={name}
+                                            key={"category"}
                                             onClick={
                                                 onClickCategoriesMenuButton
                                             }
@@ -142,6 +159,7 @@ export const Header = ({
                                             {CATEGORIES}
                                         </Button>
                                         <Menu
+                                            key='menu-categories'
                                             className='CategoryContainer'
                                             anchorEl={anchorCategoriesMenu}
                                             keepMounted
@@ -151,7 +169,6 @@ export const Header = ({
                                             }
                                         >
                                             <Categories
-                                                key={name}
                                                 categories={categories}
                                                 onClickMenuItem={
                                                     onClickMenuItem
@@ -160,7 +177,7 @@ export const Header = ({
                                         </Menu>
                                     </>
                                 )}
-                            </div>
+                            </>
                         ))}
                     </Box>
                     <div className='Search'>

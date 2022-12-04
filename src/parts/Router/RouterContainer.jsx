@@ -6,7 +6,6 @@ import { FeedbackContainer } from "../../pages/Feedback/FeedbackContainer";
 import { GoodDetailsContainer } from "../../pages/GoodDetails/GoodDetailsContainer";
 import { GoodsListContainer } from "../../pages/GoodsList/GoodsListContainer";
 import { NotFound } from "../../pages/NotFound/NotFound";
-import { FooterContainer } from "../Footer/FooterContainer";
 import { HeaderContainer } from "../Header/HeaderContainer";
 
 export const RouterContainer = ({
@@ -108,7 +107,6 @@ export const RouterContainer = ({
                 </Route>
                 <Route path='*' element={<NotFound />} />
             </Routes>
-            <FooterContainer />
         </BrowserRouter>
     );
 };

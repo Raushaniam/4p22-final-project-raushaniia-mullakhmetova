@@ -1,3 +1,83 @@
+@import "./../../common/styles/variables.scss";
+
 .Feedback {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+
+    .FeedbackContent {
+        border: 2px solid;
+        border-color: $BackgroundColorBrown;
+        border-radius: 10px;
+        min-width: 300px;
+        width: 50%;
+        min-height: 750px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .MuiBox-root {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+
+            .buttonFile {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+
+    .MuiFormControl-root {
+        width: 100%;
+
+        label {
+            color: $BackgroundColorBrown;
+        }
+
+        .MuiInputBase-root {
+            .MuiOutlinedInput-notchedOutline {
+                border-color: $BackgroundColorBrown;
+            }
+        }
+    }
+
+    .MuiButtonBase-root {
+        background-color: #361d0fa6;
+        color: rgb(251, 251, 251);
+        padding: 4px 8px;
+        font-size: 1rem;
+    }
+
+    .MuiButtonBase-root:hover {
+        background-color: $BackgroundColorOrange;
+    }
+
+    .MuiFormControlLabel-root {
+        margin: 8px;
+        width: 100%;
+        display: flex;
+        column-gap: 10px;
+
+        .MuiButtonBase-root {
+            border: 2px solid $BackgroundColorBrown;
+            border-radius: 0;
+            padding: 0;
+            background-color: transparent;
+        }
+
+        .MuiRadio-root {
+            border-radius: 50%;
+        }
+    }
+}
+
+.MuiSvgIcon-root {
+    .Mui-checked {
+        color: $BackgroundColorBrown;
+    }
 }

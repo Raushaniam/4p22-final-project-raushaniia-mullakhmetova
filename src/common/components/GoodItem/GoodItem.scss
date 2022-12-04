@@ -43,11 +43,11 @@
 
 .ButtonRemoveGoodItem {
     &.MuiButtonBase-root {
-        background-color: #da5b13;
+        background-color: $BackgroundColorOrange;
         color: rgb(251, 251, 251);
         padding: 4px 8px;
     }
     &.MuiButtonBase-root:hover {
-        background-color: #da5b13;
+        background-color: $BackgroundColorOrange;
     }
 }

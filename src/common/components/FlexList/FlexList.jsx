@@ -6,6 +6,6 @@ export const FlexList = ({ items }) => {
     return items && items.length ? (
         <div className='FlexList'>{items}</div>
     ) : (
-        <div>{NO_DATA}</div>
+        <div className='NoData'>{NO_DATA}</div>
     );
 };

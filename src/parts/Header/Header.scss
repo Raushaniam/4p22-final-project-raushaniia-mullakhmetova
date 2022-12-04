@@ -3,8 +3,18 @@
 .Header {
     &.MuiAppBar-root {
         position: sticky;
+        top: 0;
         font-size: $PrimaryFontSize;
         background-color: $BackgroundColorBrown;
+        top: 0px;
+        min-width: 375px;
+    }
+
+    .Logo {
+        display: flex;
+        flex-direction: row;
+        column-gap: 10px;
+        align-items: center;
     }
 
     .CategoriesMenu {
@@ -16,20 +26,79 @@
     .CategoriesOfMainPage {
         display: flex;
     }
+}
 
-    button {
-        &.MuiButtonBase-root {
-            color: #fff;
-        }
+.SelectedMenuButtonItem {
+    background-color: $BackgroundColorOrange !important;
+}
+
+.TextField {
+    input {
+        color: #fff;
+        width: 90px;
     }
-    .SelectedMenuButtonItem {
-        background-color: #da5b13 !important;
+
+    input::placeholder {
+        color: #fff;
+    }
+}
+
+.MuiContainer-root {
+    .MuiToolbar-root {
+        justify-content: space-between;
+        column-gap: 22px;
+        align-items: center;
+        padding: 0;
+
+        .NavigationBox {
+            justify-content: space-between;
+            flex-grow: 0;
+            column-gap: 10px;
+
+            .MuiButtonBase-root {
+                color: #fff;
+                min-width: 100px;
+            }
+        }
+
+        @media screen and (max-width: 1150px) and (min-width: 899px) {
+            &.MuiButtonBase-root {
+                font-size: 0, 75rem;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            .MuiBox-root {
+                max-width: 60px;
+
+                button {
+                    &.MuiButtonBase-root {
+                        color: #fff;
+                        min-width: 100px;
+                    }
+                }
+            }
+
+            @media screen and (max-width: 1150px) and (min-width: 901px) {
+                .MuiTypography-root {
+                    max-width: 136px;
+                }
+            }
+        }
+
+        @media screen and (max-width: 560px) {
+            .MuiToolbar-root {
+                justify-content: center;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
     }
 }
 
 .SelectedMenuItem {
     &.MuiMenuItem-root {
-        background-color: #da5b13 !important;
+        background-color: $BackgroundColorOrange !important;
     }
 }
 
@@ -40,34 +109,14 @@
     }
 }
 
-.Toolbar {
-    &.MuiToolbar-root {
-        justify-content: space-around;
-    }
-}
-
-.NavigationBox {
-    &.MuiBox-root {
-        justify-content: center;
-    }
-}
-
-.TextField {
-    input {
-        color: #fff;
-    }
-    input::placeholder {
-        color: #fff;
-    }
-}
-
 .Search {
     display: flex;
+    min-width: 104px;
 
     .MuiFormControl-root {
         .Mui-focused {
             .MuiOutlinedInput-notchedOutline {
-                border: 2px solid #da5b13;
+                border: 2px solid $BackgroundColorOrange;
             }
         }
     }
@@ -82,5 +131,17 @@
     align-items: center;
 }
 
-.Categories {
+.MuiPaper-root {
+    .MuiList-root {
+        .CategoriesBox {
+            background-color: #4a332742;
+
+            .HeaderCategories {
+                margin-left: 16px;
+                color: $BackgroundColorOrange;
+                font-size: 1.1em;
+                font-weight: 600;
+            }
+        }
+    }
 }

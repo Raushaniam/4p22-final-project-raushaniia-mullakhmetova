@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./GoodsList.scss";
 import { GoodItem } from "../../common/components/GoodItem/GoodItem";
 import { FlexList } from "../../common/components/FlexList/FlexList";
 
@@ -20,7 +19,6 @@ export const GoodsList = ({
                     good={good}
                     onAddInBasket={onAddInBasket}
                     onRemoveInBasket={onRemoveInBasket}
-                    // onClick={() => (GoodDetails())}
                 />
             ))}
         />

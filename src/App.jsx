@@ -7,13 +7,8 @@ import { GOODS_URL } from "./common/constants/ApiUrls";
 const BASKET_KEY = "BASKET_KEY";
 
 function App() {
-    const [height, setHeight] = useState(0);
     const [searchableText, setSearchableText] = useState();
     const [goodsFromApi, setGoodsFromApi] = useState([]);
-
-    useEffect(() => {
-        setHeight(window.innerHeight);
-    }, []);
 
     useEffect(() => {
         fetch(GOODS_URL)
@@ -57,12 +52,7 @@ function App() {
     };
 
     return (
-        <div
-            className='App'
-            style={{
-                height: height,
-            }}
-        >
+        <div className='App'>
             <RouterContainer
                 searchableText={searchableText}
                 onSearch={onSearch}
