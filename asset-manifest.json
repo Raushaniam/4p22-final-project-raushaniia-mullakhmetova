@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/4p22-final-project-raushaniia-mullakhmetova/static/css/main.d02d5ed1.css",
-    "main.js": "/4p22-final-project-raushaniia-mullakhmetova/static/js/main.ff085244.js",
+    "main.css": "/4p22-final-project-raushaniia-mullakhmetova/static/css/main.f3a5cab7.css",
+    "main.js": "/4p22-final-project-raushaniia-mullakhmetova/static/js/main.16d1fe0c.js",
     "index.html": "/4p22-final-project-raushaniia-mullakhmetova/index.html",
-    "main.d02d5ed1.css.map": "/4p22-final-project-raushaniia-mullakhmetova/static/css/main.d02d5ed1.css.map",
-    "main.ff085244.js.map": "/4p22-final-project-raushaniia-mullakhmetova/static/js/main.ff085244.js.map"
+    "main.f3a5cab7.css.map": "/4p22-final-project-raushaniia-mullakhmetova/static/css/main.f3a5cab7.css.map",
+    "main.16d1fe0c.js.map": "/4p22-final-project-raushaniia-mullakhmetova/static/js/main.16d1fe0c.js.map"
   },
   "entrypoints": [
-    "static/css/main.d02d5ed1.css",
-    "static/js/main.ff085244.js"
+    "static/css/main.f3a5cab7.css",
+    "static/js/main.16d1fe0c.js"
   ]
 }
